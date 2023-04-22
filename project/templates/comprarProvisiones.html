@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container" style="color: black;">
+    <div>
+        <a type="button" class="btn btn-danger" href="/Proveedores">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M10.854 1.146a.5.5 0 0 1 0 .708L7.707 5H13.5a.5.5 0 0 1 0 1H7.707l3.147 3.146a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0z">
+                </path>
+            </svg>
+            Regresar
+        </a>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-5">
+                <div class="card-body">
+                    <div style="background-color: #5f3f15; color: white;">
+                        <h1 class="text-center mb-4">Nueva Provisión</h1>
+                    </div>
+                    <form method="POST" action="/RealizarProvision?id={{proveedor.id}}">
+                        <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>
+                        <div class="form-group">
+                            <label class="form-label">Empresa:</label>
+                            <input type="text" name="txtEmpresa" id="txtEmpresa" class="form-control" value="{{proveedor.empresa}}" readonly>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label class="form-label">Proveedor:</label>
+                            <input type="text" name="txtProveedor" id="txtProveedor" class="form-control" value="{{proveedor.nombre}}" readonly>
+                        </div>
+                        <br>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Materia prima:</label>
+                            <input type="text" name="txtMateria" id="txtMateria" class="form-control" value="{{materia.nombre}}" readonly>
+                        </div>
+                        <div class="form-group mb-3">
+                            {% if materia.unidad == "Kg" %}
+                                <label class="form-label">Costo por Kilogramo:</label>
+                            {% elif materia.unidad == "L" %}
+                                <label class="form-label">Costo por Litro:</label>
+                            {% elif materia.unidad == "Pz" %}
+                                <label class="form-label">Costo por Pieza:</label>
+                            {% endif %}
+                            <input type="text" name="txtCosto" id="txtCosto" class="form-control" value="${{proveedor.costoProducto}} mxn" readonly>
+                        </div>
+                        <div class="form-group mb-3">
+                            {% if materia.unidad == "Kg" %}
+                                <label class="form-label">Kilogramos a proveer:</label>
+                            {% elif materia.unidad == "L" %}
+                                <label class="form-label">Litros a proveer:</label>
+                            {% elif materia.unidad == "Pz" %}
+                                <label class="form-label">Piezas a proveer:</label>
+                            {% endif %}
+                            <input type="number" name="txtCantidad" id="txtCantidad" placeholder="Cantidad a proveer" required class="form-control">
+                        </div>
+                        <br>
+                        <div class="text-center"">
+                            <button type="submit" class="btn btn-primary">Continuar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

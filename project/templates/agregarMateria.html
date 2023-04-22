@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container" style="color: black;">
+    <div>
+        <a type="button" class="btn btn-danger" href="/MateriaPrima">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M10.854 1.146a.5.5 0 0 1 0 .708L7.707 5H13.5a.5.5 0 0 1 0 1H7.707l3.147 3.146a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0z">
+                </path>
+            </svg>
+            Regresar
+        </a>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-5">
+                <div class="card-body">
+                    <div style="background-color: #5f3f15; color: white;">
+                        <h1 class="text-center mb-4">Nuevo tipo de Materia prima</h1>
+                    </div>
+                    <form method="POST" action="/NuevaMateria">
+                        <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>
+                        <div class="form-group">
+                            <label class="form-label">Nombre:</label>
+                            <input type="text" name="txtNombre" id="txtNombre" placeholder="Nombre la materia" required class="form-control">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label class="form-label">Unidad de medida:</label>
+                            <select name="txtUnidad" id="txtUnidad" class="form-control">
+                                <option value="Kg">Kilogramos</option>
+                                <option value="L">Litros</option>
+                                <option value="Pz">Piezas</option>
+                            </select>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label class="form-label">Inventario inicial:</label>
+                            <input type="number" name="txtInventario" id="txtInventario" placeholder="Inventario inicial" required class="form-control">
+                        </div>
+                        <br>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success">Agregar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

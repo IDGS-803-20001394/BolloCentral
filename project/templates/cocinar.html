@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<div class="container" style="color: black;">
+  <div>
+    <a type="button" class="btn btn-danger" href="/Cocina">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M10.854 1.146a.5.5 0 0 1 0 .708L7.707 5H13.5a.5.5 0 0 1 0 1H7.707l3.147 3.146a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0z">
+            </path>
+        </svg>
+        Regresar
+    </a>
+</div>
+    <div class="row">
+        <h1 class="text-center  mb-4" style="color:#976119">{{pan.nombre}}</h1>
+        <div class="col-6">
+            <img src="data:image/jpeg;base64,{{pan.imagen}}" class="img-fluid" alt="{{pan.nombre}}" width="70%">
+        </div>
+        <div class="col-6">
+            <h4 style="color:#976119">Inventario actual: {{pan.inventario}}</h4>
+            <br>
+            <h4 style="color:#976119">Panes por lote: {{pan.cantidadLote}}</h4>
+            <div class="accordion">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseIngre" aria-expanded="true" aria-controls="collapseIngre">
+                      Ingredientes:
+                    </button>
+                  </h2>
+                  <div id="collapseIngre" class="accordion-collapse collapse" data-bs-parent="#accordionIngredientes">
+                    <div class="accordion-body">
+                      <ul>
+                        {% for materia in materias %}
+                          {% for ingrediente in ingredientes %}
+                            {% if materia.id == ingrediente.id_materia %}
+                              <li>{{materia.nombre}}: {{ingrediente.cantidad}} {{materia.unidad}}</li>
+                            {% endif %}
+                          {% endfor %}
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                <br>
+              <div class="accordion">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseReceta" aria-expanded="true" aria-controls="collapseReceta">
+                      Receta:
+                    </button>
+                  </h2>
+                  <div id="collapseReceta" class="accordion-collapse collapse" data-bs-parent="#accordionReceta">
+                    <div class="accordion-body">
+                        <textarea name="txtReceta" id="txtReceta" rows="10" class="form-control"  readonly >{{pan.receta}}</textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <form method="POST" action="/Cocinar">
+                <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>
+                <input type="hidden" name="txtId" value="{{pan.id}}">
+                {% if ingredientes|length == 0 %}
+                  <div class="alert alert-danger" role="alert">
+                    No hay ingredientes asignados a este pan
+                  </div>
+                {% else %}
+                <div class="form-group">
+                    <label for="txtCantidad"><h3 style="color:#976119">Lotes a cocinar:</h3></label>
+                    <input type="number" class="form-control" id="txtCantidad" name="txtCantidad" placeholder="Cantidad a cocinar" min="1" max="99" step="1" required>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-success">
+                  Mandar a cocinar
+                </button>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</div>
+<br>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container" style="color: black;">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-5">
+                <div class="card-body">
+                    <div style="background-color: #5f3f15; color: white;">
+                        <h1 class="text-center mb-4">Editar Pan</h1>
+                    </div>
+                    <form method="POST" action="/ModificarPan" enctype="multipart/form-data">
+                        <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>
+                        <input type="hidden" name="txtId" id="txtId" value="{{pan.id}}">
+                        <div class="form-group mb-3">
+                            <label class="form-label">Nombre:</label>
+                            <input type="text" name="txtNombre" id="txtNombre" placeholder="Nombre del pan" required class="form-control" value="{{pan.nombre}}">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Precio:</label>
+                            <input type="number" name="txtPrecio" id="txtPrecio" placeholder="Precio del pan" required class="form-control" value="{{pan.precio}}">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Descripción:</label>
+                            <input type="text" name="txtDescripcion" id="txtDescripcion" placeholder="Descripción del pan" required class="form-control" value="{{pan.descripcion}}">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Imagen:</label>
+                            <input class="form-control" type="file" name="imgPan">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Cantidad de panes por lote</label>
+                            <input type="number" name="txtCantidad" id="txtCantidad" placeholder="Cantidad de panes por lote según la receta e ingredientes" required value="{{pan.cantidadLote}}" class="form-control">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Receta:</label>
+                            <textarea name="txtReceta" id="txtReceta" rows="20  " placeholder="Receta del pan" class="form-control" required>{{pan.receta}}</textarea>
+                        </div>
+                        <br>
+                        <div class="text-center" style="color: red;">
+                            <button type="submit" class="btn btn-success">Modificar</button>
+                            <a href="/Panes" class="btn btn-danger">Cancelar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

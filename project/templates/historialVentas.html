@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <a type="button" class="btn btn-danger" href="/Ventanilla">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M10.854 1.146a.5.5 0 0 1 0 .708L7.707 5H13.5a.5.5 0 0 1 0 1H7.707l3.147 3.146a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0z">
+            </path>
+        </svg>
+        Regresar
+    </a>
+</div>
+<div class="waviy text-center">
+    <span style="--i:0; color: #5f3f15;">HISTORIAL DE VENTAS</span>
+</div> <br>
+<table class="table" style="background-color: #ffffff;">
+    <thead>
+        <tr>
+            <th style="background-color: #5f3f15;">Productos</th>
+            <th style="background-color: #5f3f15;">Total</th>
+            <th style="background-color: #5f3f15;">Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for venta in ventas %}
+        <tr>
+            <td>
+                {% for pan in panes %}
+                    {% if venta.id == pan.venta %}
+                        <p>{{pan.nombre}} - {{pan.cantidad}}pz</p>
+                    {% endif %}
+                {% endfor %}
+            </td>
+            <td><b>${{venta.total}} MXN</b></td>
+            <td>{{venta.fecha}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

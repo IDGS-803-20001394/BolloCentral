@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container" style="color: black;">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-5">
+                <div class="card-body">
+                    <div style="background-color: #5f3f15; color: white;">
+                        <h1 class="text-center mb-4">Editar Proveedor</h1>
+                    </div>
+                    <form method="POST" action="/ModificarProveedor">
+                        <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>
+                        <input type="hidden" name="txtId" id="txtId" value="{{proveedor.id}}">
+                        <div class="form-group mb-3">
+                            <label class="form-label">Nombre:</label>
+                            <input type="text" name="txtNombre" id="txtNombre" placeholder="Nombre del proveedor" required class="form-control" value="{{proveedor.nombre}}">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Teléfono:</label>
+                            <input type="number" name="txtTelefono" id="txtTelefono" placeholder="Teléfono del proveedor" required class="form-control" value="{{proveedor.telefono}}">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Empresa:</label>
+                            <input type="text" name="txtEmpresa" id="txtEmpresa" placeholder="Empresa del proveedor" required class="form-control" value="{{proveedor.empresa}}">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Producto que provee:</label>
+                            <select name="txtProducto" id="txtProducto" class="form-control">
+                                {% for materia in materias %}
+                                    {% if materia.id == proveedor.producto %}
+                                    <option value="{{materia.id}}" selected>{{materia.nombre}}</option>
+                                    {% else %}
+                                    <option value="{{materia.id}}">{{materia.nombre}}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Precio por unidad (Kg, L, Pz):</label>
+                            <input type="number" name="txtPrecio" id="txtPrecio" placeholder="Precio por unidad del producto" required class="form-control" value="{{proveedor.costoProducto}}" min="1">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Dirección:</label>
+                            <textarea name="txtDirección" id="txtDirección" rows="2" placeholder="Dirección del proveedor" class="form-control">{{proveedor.direccion}}</textarea>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Correo:</label>
+                            <input type="email" name="txtCorreo" id="txtCorreo" placeholder="Correo del proveedor" required class="form-control" value="{{proveedor.email}}">
+                        </div> <br>
+                        <div class="text-center" style="color: red;">
+                            <button type="submit" class="btn btn-success">Modificar</button>
+                            <a href="/Proveedores" class="btn btn-danger">Cancelar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

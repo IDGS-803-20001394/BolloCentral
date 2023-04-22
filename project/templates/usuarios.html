@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="waviy text-center">
+    <span style="--i:0; color: #5f3f15;">U</span>
+    <span style="--i:0; color: #5f3f15;">S</span>
+    <span style="--i:0; color: #5f3f15;">U</span>
+    <span style="--i:0; color: #5f3f15;">A</span>
+    <span style="--i:0; color: #5f3f15;">R</span>
+    <span style="--i:0; color: #5f3f15;">I</span>
+    <span style="--i:0; color: #5f3f15;">O</span>
+    <span style="--i:0; color: #5f3f15;">S</span>
+</div>
+<br> <br>
+<div class="text-center table-responsive">
+    <table class="table" style="background-color: #ffffff;">
+        <thead>
+            <tr>
+                <th scope="col" style="background-color: #5f3f15;">Nombre</th>
+                <th scope="col" style="background-color: #5f3f15;">Email</th>
+                <th scope="col" style="background-color: #5f3f15;">Rol</th>
+                <th scope="col" style="background-color: #5f3f15;">Editar rol</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for usuario in usuarios %}
+            <tr>
+                <td>{{ usuario.name }}</td>
+                <td>{{ usuario.email }}</td>
+                <td>
+                    {% if 'Admin' in usuario.roles %}
+                    Administrador
+                    {% elif 'Trabajador' in usuario.roles %}
+                    Administrativo
+                    {% elif 'Cocina' in usuario.roles %}
+                    Cocinero
+                    {% else %}
+                    Cliente
+                    {% endif %}
+                </td>
+                <td>
+                    <form action="/cambiarRol" method="POST">
+                        <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>
+                        <input type="hidden" name="email" value="{{ usuario.email }}">
+                        <select name="rol" id="rol">
+                            {% if 'Admin' in usuario.roles %}
+                            <option value="Cliente">Cliente</option>
+                            <option value="Cocina">Cocinero</option>
+                            <option value="Trabajador">Administrativo</option>
+                            <option value="Admin" selected>Administrador</option>
+                            {% elif 'Trabajador' in usuario.roles %}
+                            <option value="Cliente">Cliente</option>
+                            <option value="Cocina">Cocinero</option>
+                            <option value="Trabajador" selected>Administrativo</option>
+                            <option value="Admin">Administrador</option>
+                            {% elif 'Cocina' in usuario.roles %}
+                            <option value="Cliente">Cliente</option>
+                            <option value="Cocina" selected>Cocinero</option>
+                            <option value="Trabajador">Administrativo</option>
+                            <option value="Admin">Administrador</option>
+                            {% else %}
+                            <option value="Cliente" selected>Cliente</option>
+                            <option value="Cocina">Cocinero</option>
+                            <option value="Trabajador">Administrativo</option>
+                            <option value="Admin">Administrador</option>
+                            {% endif %}
+                        </select>
+                        <button type="submit" class="btn btn-primary">Cambiar</button>
+                    </form>
+                   
+                </td>
+            </tr>
+            {% endfor %}
+    </table>
+
+</div>
+<br>
+
+{% endblock %}

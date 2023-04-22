@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container" style="color: black;">
+    <div>
+        <a type="button" class="btn btn-danger" href="/Proveedores">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M10.854 1.146a.5.5 0 0 1 0 .708L7.707 5H13.5a.5.5 0 0 1 0 1H7.707l3.147 3.146a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0z">
+                </path>
+            </svg>
+            Regresar
+        </a>
+      </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-5">
+                <div class="card-body">
+                    <div style="background-color: #5f3f15; color: white;">
+                        <h1 class="text-center mb-4">Nuevo Proveedor</h1>
+                    </div>
+                    <form method="POST" action="/NuevoProveedor">
+                        <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Nombre:</label>
+                            <input type="text" name="txtNombre" id="txtNombre" placeholder="Nombre del proveedor" required class="form-control">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Teléfono:</label>
+                            <input type="number" name="txtTelefono" id="txtTelefono" placeholder="Teléfono del proveedor" required class="form-control">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Empresa:</label>
+                            <input type="text" name="txtEmpresa" id="txtEmpresa" placeholder="Empresa del proveedor" required class="form-control">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Producto que provee:</label>
+                            <select name="txtProducto" id="txtProducto" class="form-control">
+                                {% for materia in materias %}
+                                <option value="{{materia.id}}">{{materia.nombre}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Precio por unidad (Kg, L, Pz):</label>
+                            <input type="number" name="txtPrecio" id="txtPrecio" placeholder="Precio por unidad del producto" required class="form-control" step=".01" min="1">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Dirección:</label>
+                            <textarea name="txtDirección" id="txtDirección" rows="2" placeholder="Dirección del proveedor" class="form-control"></textarea>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Correo:</label>
+                            <input type="email" name="txtCorreo" id="txtCorreo" placeholder="Correo del proveedor" required class="form-control">
+                        </div> <br>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success">Agregar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

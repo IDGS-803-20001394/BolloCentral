@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container contenedor">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="text-center">
+                <div>
+                    <img class="img-fluid" src="../static/img/ElBolloCentralPNG.png" width="65%" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 text-center">
+            <div class="waviy text-center" >
+                <span style="--i:0">L</span>
+                <span style="--i:0">O</span>
+                <span style="--i:0">G</span>
+                <span style="--i:0">I</span>
+                <span style="--i:0">N</span>
+            </div>
+            <div class="box" style="display: inline-block; vertical-align: middle;">
+
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="notification is-danger text-dark">
+                            {{ messages[0]}}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+                
+                <form method="POST" action="/security/login">
+                    <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>
+                    <div class="input-group mb-3">
+                        <div class="control">
+                            <input class="form-control" type="email" name="email" placeholder="Escribe tu correo" style="font-size: 20px; padding: 10px;">
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="control">
+                            <input class="form-control" type="password" name="password" placeholder="Escribe tu contraseña" style="font-size: 20px; padding: 10px;">
+                        </div>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label" style="font-size: 20px;">
+                            <input class="form-check-input" type="checkbox">
+                            Recuerdame
+                        </label>
+                    </div> <br>
+                    <div class="d-grid gap-2 col-8 mx-auto">
+                        <button type="submit" class="btn btn-lg btn-primary" style="background-color: #543806; border-color: #543806;">Iniciar sesión</button>
+                      </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> <br>
+
+{% endblock %}

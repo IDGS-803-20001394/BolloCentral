@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <a type="button" class="btn btn-danger" href="/Cocina">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M10.854 1.146a.5.5 0 0 1 0 .708L7.707 5H13.5a.5.5 0 0 1 0 1H7.707l3.147 3.146a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0z">
+            </path>
+        </svg>
+        Regresar
+    </a>
+</div>
+<div class="waviy text-center">
+    <span style="--i:0; color: #5f3f15" >ORDENES DE COCINA</span>
+</div> <br>
+<div class="text-center table-responsive">
+    {%with messages = get_flashed_messages() %}
+        {%if messages%}
+            {%for message in messages%}
+                <div class="alert alert-danger text-center">
+                    <h4>{{message}}</h4>
+                </div>
+            {%endfor%}
+        {%endif%}
+    {%endwith%}
+    <h2 style="color: #5f3f15;">Ordenes pendientes</h2>
+    {% if not pendientes %}
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">No hay ordenes de cocina pendientes</h4>
+    </div>
+    {% else %}
+    <table class="table" style="background-color: #ffffff;">
+        <thead>
+            <tr>
+                <th style="background-color: #5f3f15;">Pan</th>
+                <th style="background-color: #5f3f15;">Lotes</th>
+                <th style="background-color: #5f3f15;">Panes totales</th>
+                <th style="background-color: #5f3f15;">Fecha</th>
+                <th style="background-color: #5f3f15;">Estatus</th>
+                <th style="background-color: #5f3f15;">Acciones</th>
+            </tr>
+        </thead>    
+        <tbody>
+            {% for orden in ordenes %}
+                {% if orden.estatus != "Completada" and orden.estatus !="Cancelada" %}
+                    {% for pan in panes %}
+                        {% if pan.id == orden.id_pan %}
+                            <tr>
+                                <td>{{pan.nombre}}</td>
+                                <td>{{orden.cantidad}}</td>
+                                <td>{{orden.total}}</td>
+                                <td>{{orden.fecha}}</td>
+                                {% if orden.estatus == "Pendiente" %}
+                                    <td style="background-color: #fffb00;">{{orden.estatus}}</td>
+                                {% elif orden.estatus == "Procesando"%}
+                                    <td style="background-color: #ff9900;">{{orden.estatus}}</td>
+                                {% endif %}
+                                <td>
+                                    {% if orden.estatus == "Pendiente" %}
+                                    <form action="/ProcesarOrden" method="POST">
+                                        <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>
+                                        <input type="hidden" name="txtId" value="{{orden.id}}">
+                                        <button type="submit" class="btn btn-warning">Procesar</button>
+                                    </form>
+                                    <br><br>
+                                    {% endif %}
+                                    {% if orden.estatus == "Procesando" %}
+                                    <form action="/CompletarOrden" method="POST">
+                                        <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>
+                                        <input type="hidden" name="txtId" value="{{orden.id}}">
+                                        <button type="submit" class="btn btn-success">Completar</button>
+                                    </form>
+                                    <br><br>
+                                    {% endif %}
+                                    <form action="/CancelarOrden" method="POST">
+                                        <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>
+                                        <input type="hidden" name="txtId" value="{{orden.id}}">
+                                        <button type="submit" class="btn btn-danger">Cancelar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+    <br>
+    <h2 style="color: #5f3f15;">Ordenes completadas</h2>
+    <table class="table" style="background-color: #ffffff;">
+        <thead>
+            <tr>
+                <th style="background-color: #5f3f15;">Pan</th>
+                <th style="background-color: #5f3f15;">Lotes</th>
+                <th style="background-color: #5f3f15;">Panes totales</th>
+                <th style="background-color: #5f3f15;">Fecha</th>
+                <th style="background-color: #5f3f15;">Estatus</th>
+            </tr>
+        </thead>    
+        <tbody>
+            {% for orden in ordenes %}
+                {% if orden.estatus == "Completada" or orden.estatus == "Cancelada" %}
+                    {% for pan in panes %}
+                        {% if pan.id == orden.id_pan %}
+                            <tr>
+                                <td>{{pan.nombre}}</td>
+                                <td>{{orden.cantidad}}</td>
+                                <td>{{orden.total}}</td>
+                                <td>{{orden.fecha}}</td>
+                                {% if orden.estatus == "Completada" %}
+                                    <td style="background-color: #00ff00;">{{orden.estatus}}</td>
+                                {% elif orden.estatus == "Cancelada"%}
+                                    <td style="background-color: #ff0000;">{{orden.estatus}}</td>
+                                {% endif %}
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

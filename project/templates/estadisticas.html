@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="waviy text-center">
+    <span style="--i:0; color: #5f3f15;">E</span>
+    <span style="--i:0; color: #5f3f15;">S</span>
+    <span style="--i:0; color: #5f3f15;">T</span>
+    <span style="--i:0; color: #5f3f15;">A</span>
+    <span style="--i:0; color: #5f3f15;">D</span>
+    <span style="--i:0; color: #5f3f15;">I</span>
+    <span style="--i:0; color: #5f3f15;">S</span>
+    <span style="--i:0; color: #5f3f15;">T</span>
+    <span style="--i:0; color: #5f3f15;">I</span>
+    <span style="--i:0; color: #5f3f15;">C</span>
+    <span style="--i:0; color: #5f3f15;">A</span>
+    <span style="--i:0; color: #5f3f15;">S</span>
+</div> <br>
+<div class="text-center table-responsive">
+    <table class="table" style="background-color: #ffffff;">
+        <thead>
+            <tr>
+                <th style="background-color:#5f3f15">Producto</th>
+                <th style="background-color:#5f3f15">Lotes Cocinados</th>
+                <th style="background-color:#5f3f15">Totales Cocinados</th>
+                <th style="background-color:#5f3f15">Unidades Vendidas</th>
+                <th style="background-color:#5f3f15">Ventas($)</th>
+                <th style="background-color:#5f3f15">Insumos($)</th>
+                <th style="background-color:#5f3f15">Utilidad($)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pan in panes %}
+            <tr>
+                <td>{{pan.nombre}}</td>
+                <td>{{pan.lotesC}}</td>
+                <td>{{pan.totalesC}}</td>
+                <td>{{pan.vendidos}}</td>
+                <td>${{pan.venta}} mxn</td>
+                <td>${{pan.insumos}} mxn</td>
+                <td>${{pan.utilidad}} mxn</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class="text-center" style="color: #5f3f15;" >
+    <h1>Ganancias totales: <p>${{total}} MXN</p>
+    </h1>
+</div>
+
+{% endblock %}

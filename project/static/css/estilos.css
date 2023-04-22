@@ -1,0 +1,421 @@
+    
+    /*********************************** ANIMACIÓN DE LA LETRAS *****************************************/
+    @import 
+    url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    body{
+        color: white;
+        background-color:  #f1e6a5;
+    }
+    .waviy {
+         position: relative;
+        -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
+        font-size: 60px;
+    }
+    .waviy span {
+        font-family: 'Alfa Slab One', cursive;
+        position: relative;
+        display: inline-block;
+        color: #000;
+        text-transform: uppercase;
+        animation: waviy 1s infinite;
+        animation-delay: calc(.1s * var(--i));
+    }
+    @keyframes waviy {
+            0%,40%,100% {
+            transform: translateY(0)
+        }
+        20% {
+            transform: translateY(-20px)
+        }
+    }
+    .izquierda {
+        color: white;
+        animation-duration: 3s;
+        animation-name: slideinI;
+    }
+    .Derecha {
+        color: white;
+        animation-duration: 3s;
+        animation-name: slideinD;
+    }
+
+    @keyframes slideinI {
+        from {
+            margin-left: 100%;
+            width: 100%
+        }
+
+        to {
+            margin-left: 0%;
+            width: 100%;
+        }
+    }
+    @keyframes slideinD {
+        from {
+            margin-left: -100%;
+            width: 100%
+        }
+
+        to {
+            margin-left: 0%;
+            width: 100%;
+        }
+    }
+
+/************************** ESTILO DEL NAVBAR Y PIE DE PAGINA ********************************/
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+    /*:::::Pie de Pagina*/
+    .pie-pagina{
+        width: 100%;
+        background-color: #0a141d;
+    }
+    .pie-pagina .grupo-1{
+        width: 100%;
+        max-width: 1200px;
+        margin: auto;
+        display:grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap:50px;
+        padding: 0px 0px;
+        border: white;
+    }
+    .pie-pagina .grupo-1 .box figure{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .pie-pagina .grupo-1 .box figure img{
+        width: 250px;
+    }
+    .pie-pagina .grupo-1 .box h2{
+        color: #fff;
+        margin-bottom: 25px;
+        font-size: 20px;
+    }
+    .pie-pagina .grupo-1 .box p{
+        color: #efefef;
+        margin-bottom: 10px;
+    }
+    .pie-pagina .grupo-1 .red-social a{
+        display: inline-block;
+        text-decoration: none;
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+        color: #fff;
+        margin-right: 10px;
+        background-color: #0d2033;
+        text-align: center;
+        transition: all 300ms ease;
+    }
+    .pie-pagina .grupo-1 .red-social a:hover{
+        color: aqua;
+    }
+    .pie-pagina .grupo-2{
+        background-color: white;
+        padding: 15px 10px;
+        text-align: center;
+        color: #0a141d;
+    }
+    .pie-pagina .grupo-2 small{
+        font-size: 15px;
+    }
+    @media screen and (max-width:800px){
+        .pie-pagina .grupo-1{
+            width: 90%;
+            grid-template-columns: repeat(1, 1fr);
+            grid-gap:30px;
+            padding: 35px 0px;
+        }
+    }
+    .colors{
+        color: red;
+    }
+    .imagen{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .imagen{
+        width: 320px;
+        height: 300px;
+        overflow: hidden;
+        transition: all 500ms ease;
+        border-radius: 5px;
+        box-shadow: 1px 10px 15px rgba(0,0,0,0.50);
+    }
+    .imagen:hover{
+        transform: scale(1.2);
+    }
+
+
+    .zoom {
+        transition: transform .2s;
+        /* Establecer la transición para que dure 0,2 segundos */
+      }
+      
+      .zoom:hover {
+        transform: scale(1.2);
+        /* Aumentar el tamaño del elemento al 120% al pasar el ratón sobre él */
+      }
+
+      
+      
+    .contenedor {
+        margin-top: 50px;
+    }
+    
+    .box {
+        margin-top: 50px;
+        padding: 20px;
+    }
+    
+    .imgagen-responsive {
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+    
+    @media (max-width: 768px) {
+        .contenedor {
+            margin-top: 20px;
+        }
+    
+        .box {
+            margin-top: 20px;
+        }
+    }
+    .color-cards{
+        color: black;
+    }
+    .color-label{
+        color:  #251c15;
+    }
+    color-nav{
+        color: #251c15;
+    }
+    .navbar {
+        overflow: hidden;
+    }
+    nav a:hover{
+        background-color: white;
+        border-radius: 50px;
+    }
+    nav a{
+        font-weight: bold;
+        text-decoration: none;
+        padding: 10px 20px;
+        line-height: normal;
+        font-size: 20px;
+        display: inline-block;
+    }
+    .nav-link {
+        color: white;
+    } 
+    .nav-link:hover {
+        color: #9c7a3c;
+        background-color: white;
+      }
+    
+/******************* EN ESTA SECCION SE USA PARA DARLE ALGO DE ANIMACIÓN EN LA PAGINA DE CATALOGOS *********/
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;800&display=swap');
+    .contenido{
+        max-width: 100%;
+        width: 100%;
+        margin: 40px auto;
+        display: flex;
+    }
+    .mostrador{
+        width: 100%;
+        transition: .5s ease;
+    }
+    .mostrador .fila{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 40px;
+    }
+
+    .mostrador .fila .item{
+        max-width: 210px;
+        padding: 30px;
+        height: 350px;
+        /*border: 2px solid red;*/
+        text-align: center;
+        margin: 0 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: .3s;
+        background-color: white;
+    }
+    .mostrador .fila .item:hover{
+        background-color: #543806;
+    }
+    .mostrador .fila .item img{
+        max-width: 100%;
+        height: auto;
+        margin: 30px 0;
+    }
+    .mostrador .fila .item .descripcion{
+        color: #0a141d;
+        font-weight: bold;
+        font-size: 80%;
+    }
+    .mostrador .fila .item .precio{
+        color: red;
+        font-weight: bold;
+        font-size: 80%;
+    }
+    .seleccion{
+        transition: .5s ease;
+        opacity: 0;
+        width: 0%;
+        border: 1px solid #ccc;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow: scroll;
+        background-color: white;
+        
+    }
+    .cerrar{
+        position: absolute;
+        right: 0;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+        color: #0a141d;
+    }
+
+    .info{
+        padding: 20px;
+    }
+    .info img{
+        display: block;
+        margin: 30px auto;
+        width: 80%;
+        height: 50%;
+    }
+    .info h2{
+        color: #0a141d;
+        margin-bottom: 10px;
+    }
+    .info p{
+        font-size: 14px;
+        color: #707070;
+        margin-bottom: 10px;
+    }
+    .info .precio{
+        font-size: 30px;
+        font-weight: bold;
+        color: red;
+        margin-bottom: 10px;
+        display: block;
+    }
+    .info .fila{
+        display: flex;
+        align-items: flex-end;
+    }
+    .info .fila label{
+        display: block;
+        margin-bottom: 10px;
+    }
+    .info .fila select{
+        width: 100px;
+        font-size: 18px;
+        padding: 6px;
+        margin-right: 30px;
+    }
+    .info .fila button{
+        height: 40px;
+        border: none;
+        padding: 0 10px;
+        color: #fff;
+    }
+    .info .fila label{
+        color: red;
+    }
+    .accordion-body {
+        max-height: calc(100vh - 300px);
+        overflow-y: auto;
+      }
+        
+/*************************************** ESTILO DE LA TABLA ******************************************/
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+  }
+  
+  th, td {
+    text-align: center;
+    padding: 12px;
+  }
+  
+  thead {
+    background-color: #03177C;
+    color: #fff;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  td:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  
+  td:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+  th:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  
+  th:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+  td, th {
+    border: 1px solid #ddd;
+  }
+  
+  th{
+    padding: 10px;
+  }
+
+  .nuevoA {
+    display: inline-block; /* Permite agregar ancho y altura al enlace */
+    padding: 10px 20px; /* Añade espaciado interno al enlace */
+    text-decoration: none; /* Elimina la subrayado predeterminado */
+    color: white; /* Define el color de texto del enlace */
+    background-color: #007bff; /* Define el color de fondo del enlace */
+    border-radius: 5px; /* Añade bordes redondeados al enlace */
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Añade sombra al enlace */
+  }
+  
+  /* Cambia el estilo del enlace cuando se coloca el mouse sobre él */
+  .nuevoA:hover {
+    background-color: #0062cc;
+    color: white;
+  }
+
+  .form-control-custom {
+    margin-bottom: 20px;
+  }
+        

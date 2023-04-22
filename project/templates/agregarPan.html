@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container" style="color: black;">
+    <div>
+        <a type="button" class="btn btn-danger" href="/Panes">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M10.854 1.146a.5.5 0 0 1 0 .708L7.707 5H13.5a.5.5 0 0 1 0 1H7.707l3.147 3.146a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0z">
+                </path>
+            </svg>
+            Regresar
+        </a>
+    </div>
+    <div class="row justify-content-center">
+        {%with messages = get_flashed_messages() %}
+            {%if messages%}
+                {%for message in messages%}
+                    <div class="alert alert-danger text-center">
+                        <h4>{{message}}</h4>
+                    </div>
+                {%endfor%}
+            {%endif%}
+        {%endwith%}
+        <div class="col-md-6">
+            <div class="card mt-5">
+                <div class="card-body">
+                    <div style="background-color: #5f3f15; color: white;">
+                        <h1 class="text-center mb-4">Nuevo Pan</h1>
+                    </div>
+                    <form method="POST" action="/NuevoPan" enctype="multipart/form-data">
+                        <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Nombre:</label>
+                            <input type="text" name="txtNombre" id="txtNombre" placeholder="Nombre del pan" required class="form-control">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Precio:</label>
+                            <input type="number" name="txtPrecio" id="txtPrecio" placeholder="Precio del pan" required class="form-control">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Descripción:</label>
+                            <input type="text" name="txtDescripcion" id="txtDescripcion" placeholder="Descripción del pan" required class="form-control">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Imagen:</label>
+                            <input class="form-control" type="file" name="imgPan">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Cantidad de panes por lote</label>
+                            <input type="number" name="txtCantidad" id="txtCantidad" placeholder="Cantidad de panes por lote según la receta e ingredientes" required class="form-control">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Receta:</label>
+                            <textarea name="txtReceta" id="txtReceta" rows="20" placeholder="Receta del pan" class="form-control" required></textarea>
+                        </div>
+                        <br>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success">Agregar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

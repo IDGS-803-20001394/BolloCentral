@@ -1,0 +1,117 @@
+WARNING:root:Error al iniciar sesion con el correo: Naruxdev@gmail.com el: 21/04/2023 a las: 13:58:55
+INFO:root:Inicio de sesion con el correo: Naruxdev@gmail.com el: 21/04/2023 a las: 13:59:10
+INFO:root:El usuario:Naruxdev@gmail.com agregó el pan: Bolillo el: 21/04/2023 a las: 13:59:55
+INFO:root:El usuario:Naruxdev@gmail.com modificó el pan: Bolillo el: 21/04/2023 a las: 14:00:11
+INFO:root:Inicio de sesion con el correo: Naruxdev@gmail.com el: 21/04/2023 a las: 17:54:42
+INFO:root:Inicio de sesion con el correo: Naruxdev@gmail.com el: 21/04/2023 a las: 17:57:48
+INFO:root:Inicio de sesion con el correo: Kirito@gmail.com el: 21/04/2023 a las: 18:01:26
+INFO:root:Inicio de sesion con el correo: Naruxdev@gmail.com el: 21/04/2023 a las: 18:04:03
+INFO:root:Inicio de sesion con el correo: Naruxdev@gmail.com el: 21/04/2023 a las: 18:07:11
+INFO:root:Inicio de sesion con el correo: Naruxdev@gmail.com el: 21/04/2023 a las: 18:13:59
+INFO:root:Inicio de sesion con el correo: Naruxdev@gmail.com el: 21/04/2023 a las: 18:24:13
+INFO:root:Inicio de sesion con el correo: Naruxdev@gmail.com el: 21/04/2023 a las: 18:29:40
+INFO:root:El usuario:Naruxdev@gmail.com modificó los ingredientes del pan: 6 el: 21/04/2023 a las: 18:30:30
+INFO:root:El usuario:Naruxdev@gmail.com modificó los ingredientes del pan: 6 el: 21/04/2023 a las: 18:30:41
+INFO:root:El usuario:Naruxdev@gmail.com agregó la materia prima: Sal el: 21/04/2023 a las: 18:31:21
+INFO:root:El usuario:Naruxdev@gmail.com modificó los ingredientes del pan: 6 el: 21/04/2023 a las: 18:31:53
+INFO:root:El usuario:Naruxdev@gmail.com modificó los ingredientes del pan: 6 el: 21/04/2023 a las: 18:32:24
+INFO:root:El usuario:Naruxdev@gmail.com modificó los ingredientes del pan: 6 el: 21/04/2023 a las: 18:32:37
+INFO:root:El usuario:Naruxdev@gmail.com modificó el pan: Bolillo el: 21/04/2023 a las: 18:33:37
+INFO:root:Inicio de sesion con el correo: Kirito@gmail.com el: 21/04/2023 a las: 18:33:47
+WARNING:root:Error al iniciar sesion con el correo: Cocina@hotmail.com el: 21/04/2023 a las: 18:35:10
+INFO:root:Inicio de sesion con el correo: Cocina@hotmail.com el: 21/04/2023 a las: 18:35:17
+INFO:root:Inicio de sesion con el correo: Trabajador@hotmail.com el: 21/04/2023 a las: 18:35:31
+INFO:root:Inicio de sesion con el correo: Naruxdev@gmail.com el: 21/04/2023 a las: 18:35:44
+INFO:root:Registro de cuenta con el correo: Admin@Hotmail.com el: 21/04/2023 a las: 18:36:33
+INFO:root:Inicio de sesion con el correo: Naruxdev@gmail.com el: 21/04/2023 a las: 18:36:38
+INFO:flask_wtf.csrf:The CSRF session token is missing.
+INFO:root:Inicio de sesion con el correo: Naruxdev@gmail.com el: 21/04/2023 a las: 18:37:54
+INFO:root:El usuario: Naruxdev@gmail.com ha cambiado el rol del usuario: Admin@Hotmail.com a: <Role 3> el: 21/04/2023 a las: 18:37:58
+INFO:root:El usuario: Naruxdev@gmail.com ha cambiado el rol del usuario: Admin@Hotmail.com a: <Role 4> el: 21/04/2023 a las: 18:38:01
+INFO:root:El usuario: Naruxdev@gmail.com ha cambiado el rol del usuario: Admin@Hotmail.com a: <Role 1> el: 21/04/2023 a las: 18:38:03
+INFO:root:Inicio de sesion con el correo: Admin@Hotmail.com el: 21/04/2023 a las: 18:38:19
+INFO:root:Inicio de sesion con el correo: Kirito@gmail.com el: 21/04/2023 a las: 18:38:30
+INFO:root:Inicio de sesion con el correo: Trabajador@hotmail.com el: 21/04/2023 a las: 18:39:00
+INFO:root:Registro de cuenta con el correo: cliente@hotmail.com el: 21/04/2023 a las: 18:39:57
+INFO:root:Inicio de sesion con el correo: cliente@hotmail.com el: 21/04/2023 a las: 18:40:06
+INFO:root:Pedido realizado por el usuario: cliente@hotmail.com - 2023-04-21 18:41:22.589375
+INFO:root:Inicio de sesion con el correo: Trabajador@hotmail.com el: 21/04/2023 a las: 18:41:32
+WARNING:root:El pedido 12 fue procesado por Trabajador@hotmail.com el 21/04/2023 a las 18:41
+WARNING:root:El pedido 12 fue marcado como enviado por Trabajador@hotmail.com el 21/04/2023 a las 18:43
+WARNING:root:El pedido 12 fue marcado como entregado por Trabajador@hotmail.com el 21/04/2023 a las 18:43
+INFO:root:Inicio de sesion con el correo: Admin@Hotmail.com el: 21/04/2023 a las: 18:43:31
+INFO:root:El usuario:Admin@Hotmail.com modificó el pan: Bolillo el: 21/04/2023 a las: 18:45:26
+INFO:root:El usuario:Admin@Hotmail.com agregó una orden de cocina el: 21/04/2023 a las: 18:46:00
+INFO:root:Inicio de sesion con el correo: Admin@Hotmail.com el: 21/04/2023 a las: 18:47:11
+INFO:root:El usuario:Admin@Hotmail.com procesó la orden: 20 el: 21/04/2023 a las: 18:47:23
+INFO:root:El usuario:Admin@Hotmail.com procesó la orden: 20 el: 21/04/2023 a las: 18:47:23
+INFO:root:El usuario:Admin@Hotmail.com procesó la orden: 20 el: 21/04/2023 a las: 18:47:23
+INFO:root:El usuario:Admin@Hotmail.com procesó la orden: 20 el: 21/04/2023 a las: 18:47:23
+INFO:root:Inicio de sesion con el correo: Admin@Hotmail.com el: 21/04/2023 a las: 18:47:51
+INFO:root:El usuario:Admin@Hotmail.com agregó una orden de cocina el: 21/04/2023 a las: 18:48:16
+INFO:root:El usuario:Admin@Hotmail.com procesó la orden: 21 el: 21/04/2023 a las: 18:48:19
+INFO:root:El usuario:Admin@Hotmail.com canceló la orden: 21 el: 21/04/2023 a las: 18:48:21
+INFO:root:El usuario:Admin@Hotmail.com mermó: 0.020Kg de Azucar el: 21/04/2023 a las: 18:48:48
+INFO:root:Venta realizada en ventanilla por Admin@Hotmail.com el 21/04/2023 a las 18:49
+INFO:root:Inicio de sesion con el correo: Admin@Hotmail.com el: 21/04/2023 a las: 18:50:19
+INFO:root:El usuario: Admin@Hotmail.com ha agregado el nuevo proveedor: Alejandro Guitierrez el: 21/04/2023 a las: 18:53:07
+INFO:root:El usuario: Admin@Hotmail.com ha modificado el proveedor: Alejandro Guitierrez el: 21/04/2023 a las: 18:53:47
+INFO:root:El usuario: Admin@Hotmail.com ha agregado el nuevo proveedor: dfgdfg el: 21/04/2023 a las: 18:54:34
+INFO:root:El usuario: Admin@Hotmail.com ha desactivado el proveedor: dfgdfg el: 21/04/2023 a las: 18:54:40
+INFO:root:El usuario: Admin@Hotmail.com ha realizado un pedido de: 20Kg de Sal al proveedor: Alejandro Guitierrez el: 21/04/2023 a las: 18:55:01
+INFO:root:Inicio de sesion con el correo: Naruxdev@gmail.com el: 21/04/2023 a las: 18:55:32
+INFO:flask_wtf.csrf:The CSRF session token is missing.
+INFO:root:Inicio de sesion con el correo: Admin@Hotmail.com el: 21/04/2023 a las: 18:56:49
+INFO:root:El usuario: Admin@Hotmail.com ha realizado un pedido de: 48Pz de Huevo al proveedor: Juan Carlos Garcia Ramirez el: 21/04/2023 a las: 18:57:12
+INFO:root:El usuario: Admin@Hotmail.com ha confirmado el recibimiento del pedido de: 48Pz de Huevo al proveedor: 4 el: 21/04/2023 a las: 18:57:15
+INFO:root:Inicio de sesion con el correo: cliente@hotmail.com el: 21/04/2023 a las: 18:59:23
+INFO:root:Inicio de sesion con el correo: cliente@hotmail.com el: 21/04/2023 a las: 18:59:48
+INFO:root:Pedido realizado por el usuario: cliente@hotmail.com - 2023-04-21 18:59:53.557301
+INFO:root:Inicio de sesion con el correo: Admin@Hotmail.com el: 21/04/2023 a las: 19:00:09
+WARNING:root:El pedido 13 fue cancelado por Admin@Hotmail.com el 21/04/2023 a las 19:00
+INFO:root:Inicio de sesion con el correo: Kirito@gmail.com el: 22/04/2023 a las: 00:19:18
+INFO:root:Inicio de sesion con el correo: Naruxdev@gmail.com el: 22/04/2023 a las: 00:25:03
+INFO:root:El usuario:Naruxdev@gmail.com agregó una orden de cocina el: 22/04/2023 a las: 00:28:03
+INFO:root:El usuario:Naruxdev@gmail.com procesó la orden: 22 el: 22/04/2023 a las: 00:28:06
+INFO:root:El usuario:Naruxdev@gmail.com procesó la orden: 22 el: 22/04/2023 a las: 00:28:06
+INFO:root:El usuario:Naruxdev@gmail.com procesó la orden: 22 el: 22/04/2023 a las: 00:28:06
+INFO:root:El usuario:Naruxdev@gmail.com procesó la orden: 22 el: 22/04/2023 a las: 00:28:06
+INFO:root:El usuario:Naruxdev@gmail.com procesó la orden: 22 el: 22/04/2023 a las: 00:28:06
+INFO:root:El usuario:Naruxdev@gmail.com procesó la orden: 22 el: 22/04/2023 a las: 00:28:06
+INFO:root:El usuario:Naruxdev@gmail.com completó la orden: 22 el: 22/04/2023 a las: 00:28:08
+INFO:root:Venta realizada en ventanilla por Naruxdev@gmail.com el 22/04/2023 a las 00:28
+INFO:root:Inicio de sesion con el correo: Kirito@gmail.com el: 22/04/2023 a las: 00:34:36
+INFO:flask_wtf.csrf:The CSRF token is missing.
+INFO:root:Inicio de sesion con el correo: Naruxdev@gmail.com el: 22/04/2023 a las: 08:33:14
+INFO:root:El usuario:Naruxdev@gmail.com agregó una orden de cocina el: 22/04/2023 a las: 08:35:15
+INFO:root:El usuario:Naruxdev@gmail.com procesó la orden: 23 el: 22/04/2023 a las: 08:35:16
+INFO:root:El usuario:Naruxdev@gmail.com procesó la orden: 23 el: 22/04/2023 a las: 08:35:16
+INFO:root:El usuario:Naruxdev@gmail.com procesó la orden: 23 el: 22/04/2023 a las: 08:35:16
+INFO:root:El usuario:Naruxdev@gmail.com procesó la orden: 23 el: 22/04/2023 a las: 08:35:16
+INFO:root:El usuario:Naruxdev@gmail.com procesó la orden: 23 el: 22/04/2023 a las: 08:35:16
+INFO:root:El usuario:Naruxdev@gmail.com procesó la orden: 23 el: 22/04/2023 a las: 08:35:16
+INFO:root:El usuario:Naruxdev@gmail.com completó la orden: 23 el: 22/04/2023 a las: 08:35:18
+INFO:root:El usuario:Naruxdev@gmail.com agregó una orden de cocina el: 22/04/2023 a las: 08:35:45
+INFO:root:El usuario:Naruxdev@gmail.com procesó la orden: 24 el: 22/04/2023 a las: 08:35:46
+INFO:root:El usuario:Naruxdev@gmail.com procesó la orden: 24 el: 22/04/2023 a las: 08:35:46
+INFO:root:El usuario:Naruxdev@gmail.com procesó la orden: 24 el: 22/04/2023 a las: 08:35:46
+INFO:root:El usuario:Naruxdev@gmail.com procesó la orden: 24 el: 22/04/2023 a las: 08:35:46
+INFO:root:El usuario:Naruxdev@gmail.com procesó la orden: 24 el: 22/04/2023 a las: 08:35:46
+INFO:root:El usuario:Naruxdev@gmail.com procesó la orden: 24 el: 22/04/2023 a las: 08:35:46
+INFO:root:El usuario:Naruxdev@gmail.com procesó la orden: 24 el: 22/04/2023 a las: 08:35:46
+INFO:root:El usuario:Naruxdev@gmail.com procesó la orden: 24 el: 22/04/2023 a las: 08:35:46
+INFO:root:El usuario:Naruxdev@gmail.com procesó la orden: 24 el: 22/04/2023 a las: 08:35:46
+INFO:root:El usuario:Naruxdev@gmail.com completó la orden: 24 el: 22/04/2023 a las: 08:35:48
+INFO:root:El usuario:Naruxdev@gmail.com agregó una orden de cocina el: 22/04/2023 a las: 08:38:41
+INFO:root:El usuario:Naruxdev@gmail.com procesó la orden: 25 el: 22/04/2023 a las: 08:38:43
+INFO:root:El usuario:Naruxdev@gmail.com procesó la orden: 25 el: 22/04/2023 a las: 08:38:43
+INFO:root:El usuario:Naruxdev@gmail.com procesó la orden: 25 el: 22/04/2023 a las: 08:38:43
+INFO:root:El usuario:Naruxdev@gmail.com procesó la orden: 25 el: 22/04/2023 a las: 08:38:43
+INFO:root:El usuario:Naruxdev@gmail.com procesó la orden: 25 el: 22/04/2023 a las: 08:38:43
+INFO:root:El usuario:Naruxdev@gmail.com procesó la orden: 25 el: 22/04/2023 a las: 08:38:43
+INFO:root:El usuario:Naruxdev@gmail.com procesó la orden: 25 el: 22/04/2023 a las: 08:38:43
+INFO:root:El usuario:Naruxdev@gmail.com procesó la orden: 25 el: 22/04/2023 a las: 08:38:43
+INFO:root:El usuario:Naruxdev@gmail.com procesó la orden: 25 el: 22/04/2023 a las: 08:38:43
+INFO:root:El usuario:Naruxdev@gmail.com completó la orden: 25 el: 22/04/2023 a las: 08:38:44
+INFO:root:Venta realizada en ventanilla por Naruxdev@gmail.com el 22/04/2023 a las 08:39
+INFO:root:Venta realizada en ventanilla por Naruxdev@gmail.com el 22/04/2023 a las 08:40

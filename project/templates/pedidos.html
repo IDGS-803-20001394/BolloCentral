@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="waviy text-center">
+    <span style="--i:1; color: #5f3f15">M</span>
+    <span style="--i:2; color: #5f3f15">I</span>
+    <span style="--i:3; color: #5f3f15">S</span>
+    <span></span>
+    <span style="--i:4; color: #5f3f15">P</span>
+    <span style="--i:5; color: #5f3f15">E</span>
+    <span style="--i:6; color: #5f3f15">D</span>
+    <span style="--i:7; color: #5f3f15">I</span>
+    <span style="--i:8; color: #5f3f15">D</span>
+    <span style="--i:9; color: #5f3f15">O</span>
+    <span style="--i:10; color: #5f3f15">S</span>
+</div> <br>
+
+    {% if pedidos|length == 0 %}
+    <div class="alert alert-warning text-center" role="alert">
+        <h4 class="alert-heading">No hay tienes pedidos</h4>
+        <p>Realiza alguno y disfruta nuestro sabor!</p>
+        <hr>
+        <a type="button" class="btn btn-primary" href="/Catalogo">Catálogo</a>
+    </div>
+    
+    {% else %}
+        <table class="table" style="background-color: #ffffff;">
+            <thead>
+                <tr>
+                    <th style="background-color: #5f3f15;">Productos</th>
+                    <th style="background-color: #5f3f15;">Total</th>
+                    <th style="background-color: #5f3f15;">Dirección de entrega</th>
+                    <th style="background-color: #5f3f15;">Fecha</th>
+                    <th style="background-color: #5f3f15;">Estatus</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pedido in pedidos %}
+                <tr>
+                    <td>
+                        {% for pan in panes %}
+                            {% if pedido.id == pan.pedido %}
+                                <p>{{pan.nombre}} - {{pan.cantidad}}pz</p>
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td><b>${{pedido.total}} MXN</b></td>
+                    <td>{{pedido.direccion}}</td>
+                    <td>{{pedido.fecha}}</td>
+                    {% if pedido.estatus == "Pendiente" %}
+                        <td style="background-color: #fffb00;">{{pedido.estatus}}</td>
+                    {% elif pedido.estatus == "Procesando"%}
+                        <td style="background-color: #ff9900;">{{pedido.estatus}}</td>
+                    {% elif pedido.estatus == "Enviado" %}
+                        <td style="background-color: #0077ff;">{{pedido.estatus}}</td>
+                    {% elif pedido.estatus == "Entregado" %}
+                        <td style="background-color: #00cc00;">{{pedido.estatus}}</td>
+                    {% elif pedido.estatus == "Cancelado" %}
+                        <td style="background-color: #ff0000; color: white;">{{pedido.estatus}}</td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+    </div>
+</div>
+
+{% endblock %}

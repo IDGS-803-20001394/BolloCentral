@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container" style="color: black;">
+    <div>
+        <a type="button" class="btn btn-danger" href="/Panes">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M10.854 1.146a.5.5 0 0 1 0 .708L7.707 5H13.5a.5.5 0 0 1 0 1H7.707l3.147 3.146a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0z">
+                </path>
+            </svg>
+            Regresar
+        </a>
+    </div>
+    <div class="text-center">
+        <h1>Ingredientes por lote pan: {{pan.nombre}}</h1>
+        <br>
+        <div class="row">
+            <div class="col-6">
+                <h3>Lista de materias:</h3>
+                    <table class="table table-responsive" style="background-color: #ffffff;">
+                        <thead>
+                            <tr>
+                                <th style="background-color: #5f3f15;">Nombre</th>
+                                <th style="background-color: #5f3f15;">Agregar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for materia in materias %}
+                            <tr>
+                                <td>{{materia.nombre}}</td>
+                                <td>
+                                    <form action="/IngredientesPan" method="POST">
+                                        <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>
+                                        <input type="hidden" name="txtIdPan" value="{{pan.id}}">
+                                        <input type="hidden" name="txtIdMateria" value="{{materia.id}}">
+                                        <input type="number" name="txtCantidad"  placeholder="Cantidad" min="0" step="0.001">
+                                        {{materia.unidad}}
+                                        <button type="submit" class="btn btn-success">Agregar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+            </div>
+            <div class="col-6">
+                <h3>Ingredientes del lote de pan:</h3>
+                <table class="table table-responsive" style="background-color: #ffffff;">
+                    <thead>
+                        <tr>
+                            <th style="background-color: #5f3f15;">Nombre</th>
+                            <th style="background-color: #5f3f15;">Cantidad</th>
+                            <th style="background-color: #5f3f15;">Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for ingrediente in ingredientes %}
+                        <tr>
+                            <td>{{ingrediente.nombre}}</td>
+                            <td>{{ingrediente.cantidad}} {{ingrediente.unidad}}</td>
+                            <td>
+                                <form action="/EliminarIngrediente" method="POST">
+                                    <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>
+                                    <input type="hidden" name="txtId" value="{{ingrediente.id}}">
+                                    <button type="submit" class="btn btn-danger">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                                          </svg>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+{% endblock %}
