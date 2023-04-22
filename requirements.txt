@@ -6,3 +6,4 @@ mysqlclient
 flask-marshmallow
 bcrypt
 pytz
+pymsql
